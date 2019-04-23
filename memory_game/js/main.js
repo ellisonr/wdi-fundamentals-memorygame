@@ -1,25 +1,22 @@
 console.log("Up and running!");
-console.log("User flipped " + cardOne);
-console.log("User flipped " + cardTwo);
 var cards = ["queen","queen","king","king"];
 var cardsInPlay = [];
-var cardOne = cards[0];
-cardsInPlay.push(cardOne);
-console.log("User flipped " + cardOne);
-
-var cardTwo = cards[2];
-cardsInPlay.push(cardTwo)
-console.log("User flipped " + cardTwo);
 
 function checkForMatch() {
-  //if (cardsInPlay.length == 2) {
     if (cardsInPlay[0] === cardsInPlay[1]) {
-          alert("You found a match!");
-          //setTimeout('location', 50000);
-        //location.reload()
-
+          console.log("You found a match!");
       } else {
-          alert("Sorry, try again");
-        };
-
+          console.log("Sorry, try again.");
+        }
   };
+
+  function flipCard() {
+    var cardId = this.getAttribute('data-id');
+  cardsInPlay.push(cards[cardId].rank);
+ this.setAttribute('src', cards[cardId].cardImage);
+ if (cardsInPlay.length === 2){
+    checkForMatch();
+ };
+};
+
+console.log(cardsInPlay);
